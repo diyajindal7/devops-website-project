@@ -4,9 +4,9 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Build Docker Image') {
             steps {
-                git 'https://github.com/diyajindal7/devops-website-project.git'
+                sh 'docker build --no-cache -t devops-website .'
             }
         }
 
@@ -17,19 +17,7 @@ pipeline {
             }
         }
 
-        stage('Remove Old Image') {
-            steps {
-                sh 'docker rmi devops-website || true'
-            }
-        }
-
-        stage('Build New Docker Image') {
-            steps {
-                sh 'docker build -t devops-website .'
-            }
-        }
-
-        stage('Deploy New Container') {
+        stage('Deploy Container') {
             steps {
                 sh 'docker run -d -p 8081:80 --name website-container devops-website'
             }
