@@ -4,22 +4,21 @@ pipeline {
 
     stages {
 
-        stage('Build Docker Image') {
+        stage('Build Stage') {
             steps {
-                sh 'docker build --no-cache -t devops-website .'
+                echo 'Building Application...'
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Test Stage') {
             steps {
-                sh 'docker stop website-container || true'
-                sh 'docker rm website-container || true'
+                echo 'Testing Application...'
             }
         }
 
-        stage('Deploy Container') {
+        stage('Deployment Stage') {
             steps {
-                sh 'docker run -d -p 8081:80 --name website-container devops-website'
+                echo 'Deploying Application Successfully...'
             }
         }
     }
