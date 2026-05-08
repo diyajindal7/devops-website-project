@@ -3,37 +3,269 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExploreWorld</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps CI/CD Project</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
+
     <nav>
-        <h1>ExploreWorld 🌍</h1>
+
+        <div class="logo">
+            ExploreWorld 🌎
+        </div>
 
         <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
+
     </nav>
+
+    <!-- HERO SECTION -->
 
     <section class="hero">
 
-        <h2>CI/CD PIPELINE SUCCESSFULLY RUNNING 🚀</h2>
+        <h1>
+              devops running
+        </h1>
 
         <p>
-            This website demonstrates a CI/CD Pipeline using Docker,
-            Jenkins and GitHub.
+            This website demonstrates a CI/CD
+            Pipeline using Docker, Jenkins and GitHub.
         </p>
 
-        <button>Explore More</button>
+        <div class="buttons">
+
+            <button onclick="window.open('http://localhost:8080')">
+                View Pipeline
+            </button>
+
+            <button class="secondary"
+                onclick="window.open('https://github.com/diyajindal7/devops-website-project')">
+
+                Explore Project
+
+            </button>
+
+        </div>
 
     </section>
 
-</body>
+    <!-- STATUS SECTION -->
 
+    <section class="status-section">
+
+        <div class="status-container">
+
+            <div class="status-card success">
+                ✅ Jenkins Pipeline: ACTIVE
+            </div>
+
+            <div class="status-card docker">
+                🐳 Docker Container: RUNNING
+            </div>
+
+            <div class="status-card github">
+                🐙 GitHub Repository: CONNECTED
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DEVOPS TOOLS -->
+
+    <section class="tools">
+
+        <h2>DevOps Tools Used</h2>
+
+        <div class="tool-container">
+
+            <div class="card">
+                <h3>🐳 Docker</h3>
+
+                <p>
+                    Docker is used to containerize
+                    and deploy the application.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚙️ Jenkins</h3>
+
+                <p>
+                    Jenkins automates the CI/CD
+                    pipeline workflow.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🐙 GitHub</h3>
+
+                <p>
+                    GitHub manages source code
+                    and version control.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WORKFLOW -->
+
+    <section class="flow">
+
+        <h2>CI/CD Workflow</h2>
+
+        <div class="flow-box">
+
+            <span>Code Changes</span>
+            <span>➡️</span>
+
+            <span>GitHub Push</span>
+            <span>➡️</span>
+
+            <span>Jenkins Build</span>
+            <span>➡️</span>
+
+            <span>Docker Deployment</span>
+
+        </div>
+
+    </section>
+
+    <!-- SIMULATOR -->
+
+    <section class="simulator">
+
+        <h2>Live Deployment Simulator 🚀</h2>
+
+        <input type="text"
+               id="versionInput"
+               placeholder="Enter New Version">
+
+        <button onclick="deployApp()">
+            Deploy Now
+        </button>
+
+        <div id="output"></div>
+
+    </section>
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <h2>Deployment Statistics 📊</h2>
+
+        <div class="stats-container">
+
+            <div class="stat-box">
+                <h1>15+</h1>
+                <p>Pipeline Builds</p>
+            </div>
+
+            <div class="stat-box">
+                <h1>99%</h1>
+                <p>Deployment Success</p>
+            </div>
+
+            <div class="stat-box">
+                <h1>3</h1>
+                <p>DevOps Tools Used</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            DevOps Project | NIE Mysuru | 2026
+        </p>
+
+    </footer>
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        function deployApp(){
+
+            let version =
+                document.getElementById("versionInput").value;
+
+            let output =
+                document.getElementById("output");
+
+            output.innerHTML = `
+                <p>🚀 Starting Deployment for:
+                <b>${version}</b></p>
+
+                <p>🔄 Connecting to GitHub...</p>
+            `;
+
+            setTimeout(() => {
+
+                output.innerHTML += `
+                    <p>⚙️ Triggering Jenkins Pipeline...</p>
+                `;
+
+            }, 1000);
+
+            setTimeout(() => {
+
+                output.innerHTML += `
+                    <p>🐳 Building Docker Image...</p>
+                `;
+
+            }, 2000);
+
+            setTimeout(() => {
+
+                output.innerHTML += `
+                    <p>📦 Creating Container...</p>
+                `;
+
+            }, 3000);
+
+            setTimeout(() => {
+
+                output.innerHTML += `
+                    <p>🚀 Deploying Application...</p>
+                `;
+
+            }, 4000);
+
+            setTimeout(() => {
+
+                output.innerHTML += `
+                    <p style="color:lime;
+                              font-size:22px;
+                              font-weight:bold;">
+
+                        ✅ Deployment Successful!
+
+                    </p>
+                `;
+
+            }, 5000);
+
+        }
+
+    </script>
+
+</body>
 </html>
